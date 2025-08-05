@@ -1,4 +1,8 @@
+# pages/SAP_Report.py
+
 import streamlit as st
 
-st.title("💼 SAP Report")
-st.info("This section will include SAP-specific Purchase Order metrics.")
+def main():
+    st.title("💼 SAP Report")
+    st.write("This is the SAP report page.")
+    # Add logic here if needed
