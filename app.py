@@ -33,4 +33,4 @@ elif page == "💼 SAP Report":
 
 elif page == "🌐 Ariba Report":
     module = importlib.import_module("pages.Ariba_Report")
-    module.main())
+    module.main()
