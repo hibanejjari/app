@@ -104,12 +104,17 @@ if uploaded_file:
                 st.warning("No data available for this chart.")
                 continue
 
-            fig, ax = plt.subplots(figsize=(14, 5))  # wider and shorter
-            chart_data.sort_values().plot(kind="bar", ax=ax)
+            fig, ax = plt.subplots(figsize=(14, 5))  # Wider, less zoomed-in
+            sorted_data = chart_data.sort_values()
+            bars = sorted_data.plot(kind="bar", ax=ax)
             ax.set_title(title, fontsize=14)
             ax.set_ylabel("Value", fontsize=12)
-            ax.set_xticklabels(chart_data.index, rotation=30, ha='right', fontsize=8)
-            plt.tight_layout()  # prevents label cutoff
+            ax.set_xticklabels(sorted_data.index, rotation=30, ha='right', fontsize=8)
+            for p in bars.patches:
+                value = round(p.get_height(), 2)
+                ax.annotate(f'{value}', (p.get_x() + p.get_width() / 2, p.get_height()),
+                ha='center', va='bottom', fontsize=8, xytext=(0, 3), textcoords='offset points')
+            plt.tight_layout()
             st.pyplot(fig)
 
 
