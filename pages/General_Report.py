@@ -91,7 +91,7 @@ def main():
             "PO Avg Time by User: Approved": lambda d: d[d["Latest Status"] == "APPROVED"].groupby("Approver Name")[col_name].mean(),
             "PO Count by User: Approved": lambda d: d[d["Latest Status"] == "APPROVED"].groupby("Approver Name")["Purchase Order No."].count(),
             "PO Count by User: In Progress": in_progress_by_user_logic,
-            "PO Avg Time by User: In Progress": lambda d: d[d["Overall Status"] == "IN PROGRESS"].groupby("Approver Name")[col_name].mean(),
+            "PO Avg Time by User: In Progress": lambda d: d[d["Overall Status"] == "IN-PROGRESS"].groupby("Approver Name")[col_name].mean(),
             "POs Cancelled/Deleted by Company": lambda d: d[d["Overall Status"].isin(["CANCELLED", "DELETED"])].groupby("Company Code Decription")["Purchase Order No."].count(),
             "PO Avg Time by Company: Approved": lambda d: d[d["Latest Status"] == "APPROVED"].groupby("Company Code Decription")[col_name].mean(),
             "PO Avg Time by Company: In Progress": lambda d: d[d["Overall Status"] == "IN-PROGRESS"].groupby("Company Code Decription")[col_name].mean(),
