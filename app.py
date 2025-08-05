@@ -104,12 +104,14 @@ if uploaded_file:
                 st.warning("No data available for this chart.")
                 continue
 
-            fig, ax = plt.subplots(figsize=(6, 4))
+            fig, ax = plt.subplots(figsize=(14, 5))  # wider and shorter
             chart_data.sort_values().plot(kind="bar", ax=ax)
-            ax.set_title(title)
-            ax.set_ylabel("Value")
-            ax.set_xticklabels(chart_data.index, rotation=45, ha='right')
+            ax.set_title(title, fontsize=14)
+            ax.set_ylabel("Value", fontsize=12)
+            ax.set_xticklabels(chart_data.index, rotation=30, ha='right', fontsize=8)
+            plt.tight_layout()  # prevents label cutoff
             st.pyplot(fig)
+
 
             # Save figure to buffer
             img_buf = io.BytesIO()
