@@ -24,13 +24,13 @@ if page == "🏠 Home":
     """)
     
 elif page == "📊 General Report":
-    module = importlib.import_module("pages.1_📊_General_Report")
+    module = importlib.import_module("pages.General_Report")
     module.main()
 
 elif page == "💼 SAP Report":
-    module = importlib.import_module("pages.2_💼_SAP_Report")
+    module = importlib.import_module("pages.SAP_Report")
     module.main()
 
 elif page == "🌐 Ariba Report":
-    module = importlib.import_module("pages.3_🌐_Ariba_Report")
-    module.main()
+    module = importlib.import_module("pages.Ariba_Report")
+    module.main())
