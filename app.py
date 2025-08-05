@@ -66,8 +66,8 @@ if uploaded_file:
         ["Total Cancelled/Deleted POs", total_cancelled],
         ["Average Approval Time/Approver", average_days],
         ["Delayed Approvals > 10 days", delayed_approved],
-        ["% Delayed Approval 'Approved PO'", f"{delayed_pct:.2f}%"],
-        ["POs Waiting for Approval", f"{waiting_pct:.2f}%"],
+        ["% Delayed Approval 'Approved PO'", f"{int(round(delayed_pct))}%"],
+        ["POs Waiting for Approval", f"{int(round(waiting_pct))}%"],
     ], columns=["Activity", "Value"])
 
     # --- Chart logic ---
