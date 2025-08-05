@@ -94,7 +94,7 @@ def main():
             "PO Avg Time by User: In Progress": lambda d: d[d["Overall Status"] == "IN PROGRESS"].groupby("Approver Name")[col_name].mean(),
             "POs Cancelled/Deleted by Company": lambda d: d[d["Overall Status"].isin(["CANCELLED", "DELETED"])].groupby("Company Code Decription")["Purchase Order No."].count(),
             "PO Avg Time by Company: Approved": lambda d: d[d["Latest Status"] == "APPROVED"].groupby("Company Code Decription")[col_name].mean(),
-            "PO Avg Time by Company: In Progress": lambda d: d[d["Overall Status"] == "IN PROGRESS"].groupby("Company Code Decription")[col_name].mean(),
+            "PO Avg Time by Company: In Progress": lambda d: d[d["Overall Status"] == "IN-PROGRESS"].groupby("Company Code Decription")[col_name].mean(),
         }
 
         selected_graphs = st.multiselect("Select graphs to generate", list(graph_options.keys()), default=["📋 Dashboard Summary"])
